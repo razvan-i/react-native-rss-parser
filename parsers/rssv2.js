@@ -83,6 +83,14 @@ const getItemLinks = (node) => {
 const getItemDescription = (node) =>
   utils.getElementTextContent(node, 'description');
 
+//
+const getItemImageContent = (node) => {
+  const images = utils.getChildElements(node, 'media:content')
+
+  return images.length > 0 ? images[0].getAttribute('url') : undefined;
+};
+//END
+
 const getItemContent = (node) =>
   utils.getElementTextContent(node, 'encoded', namespaces.content);
 
@@ -158,6 +166,7 @@ const mapItems = (document) => {
     links: getItemLinks(item),
     description: getItemDescription(item),
     content: getItemContent(item),
+    banner: getItemImageContent(item),
     id: getItemId(item),
     authors: getItemAuthors(item),
     categories: getItemCategories(item),
