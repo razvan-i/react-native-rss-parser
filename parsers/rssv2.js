@@ -47,7 +47,6 @@ const getChannelCategories = (node) => {
 
 const getChannelImage = (node) => {
   const imageNodes = utils.getChildElements(node, 'image');
-  console.log(imageNodes);
 
   if (imageNodes.length === 0) {
     return {
